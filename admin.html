@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Admin Page</title>
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo">Note <span class="highlight">It!</span></div>
             <ul class="nav-list">
-                <li class="active">All Notes</li>
-                <li>Favorites</li>
-                <li>Archives</li>
-                <a href="index.html"><li>Logout</li></a>
+                <li class="active"><i class="fa-regular fa-clipboard"></i> All Notes</li>
+                <li><i class="fa-regular fa-heart"></i> Favorites</li>
+                <li><i class="fa-regular fa-file-zipper"></i> Archives</li>
+                <a href="index.html"><li><i class="fa-solid fa-right-from-bracket"></i> Logout</li></a>
             </ul>
             <div class="user-info">
                 <div class="avatar"></div>
@@ -31,27 +32,27 @@
             <div class="header">
                 <h1>All Notes</h1>
                 <input type="text" placeholder="Search" class="search">
-                <button class="add-note">Add Notes</button>
+                <button class="add-note"><i class="fa-solid fa-plus"></i>Add Notes</button>
             </div>
             <div class="notes-container">
                 <!-- Notes Cards -->
                 <div class="note-card">
                     <h2>Notes 1</h2>
-                    <p>This is a sample notes printed here.</p>
-                    <p>Testing Notes are printed here.....</p>
+                    <p>kung ang Coconut ay lubi.</p>    
+                    <p>Ako naka bi.......</p>
                     <div class="note-footer">
                         <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
+                        <p>August 29, 2024</p>
                     </div>
                 </div>
                 <!-- Repeat the note-card div as needed -->
                 <div class="note-card">
                     <h2>Notes 1</h2>
-                    <p>This is a sample notes printed here.</p>
-                    <p>Testing Notes are printed here.....</p>
+                    <p>Kung mag IT gani ka ig 1st yr..</p>
+                    <p>Ayaw nalang padayunaaaa....</p>
                     <div class="note-footer">
                         <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
+                        <p>August 29, 2024</p>
                     </div>
                 </div>
                 <div class="note-card">
@@ -60,7 +61,25 @@
                     <p>Testing Notes are printed here.....</p>
                     <div class="note-footer">
                         <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
+                        <p>August 29, 2024</p>
+                    </div>
+                </div>
+                <div class="note-card">
+                    <h2>Notes 2</h2>
+                    <p>Ma shock man gani tag naay linog, Samot</p>
+                    <p>na kung imong uyab naay laing kuyog.</p>
+                    <div class="note-footer">
+                        <span class="yellow-dot"></span>
+                        <p>August 29, 2024</p>
+                    </div>
+                </div>
+                <div class="note-card">
+                    <h2>Notes 2</h2>
+                    <p>Ang gulay, good for you health.</p>
+                    <p>Ako, good for your heart....</p>
+                    <div class="note-footer">
+                        <span class="yellow-dot"></span>
+                        <p>August 29, 2024</p>
                     </div>
                 </div>
                 <div class="note-card">
@@ -69,25 +88,25 @@
                     <p>Testing Notes are printed here.....</p>
                     <div class="note-footer">
                         <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
+                        <p>August 29, 2024</p>
                     </div>
                 </div>
                 <div class="note-card">
-                    <h2>Notes 2</h2>
-                    <p>This is a sample notes printed here.</p>
-                    <p>Testing Notes are printed here.....</p>
+                    <h2>Notes 3</h2>
+                    <p>Pstt. katulog na ayaw kabalaka</p>
+                    <p>ugma love pa tika..</p>
                     <div class="note-footer">
                         <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
+                        <p>August 29, 2024</p>
                     </div>
                 </div>
                 <div class="note-card">
-                    <h2>Notes 2</h2>
-                    <p>This is a sample notes printed here.</p>
-                    <p>Testing Notes are printed here.....</p>
+                    <h2>Notes 3</h2>
+                    <p>Asa nga dalan sa akong agi-an.</p>
+                    <p>padung sa imong dughan..</p>
                     <div class="note-footer">
                         <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
+                        <p>August 29, 2024</p>
                     </div>
                 </div>
                 <div class="note-card">
@@ -96,25 +115,7 @@
                     <p>Testing Notes are printed here.....</p>
                     <div class="note-footer">
                         <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
-                    </div>
-                </div>
-                <div class="note-card">
-                    <h2>Notes 3</h2>
-                    <p>This is a sample notes printed here.</p>
-                    <p>Testing Notes are printed here.....</p>
-                    <div class="note-footer">
-                        <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
-                    </div>
-                </div>
-                <div class="note-card">
-                    <h2>Notes 3</h2>
-                    <p>This is a sample notes printed here.</p>
-                    <p>Testing Notes are printed here.....</p>
-                    <div class="note-footer">
-                        <span class="yellow-dot"></span>
-                        <p>March 03, 2024</p>
+                        <p>August 29, 2024</p>
                     </div>
                 </div>
                 
