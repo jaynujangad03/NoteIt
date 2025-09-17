@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once 'config.php';
+
 // If user is already logged in, redirect to admin
 if (isset($_SESSION['user_id'])) {
     header('Location: admin.php');
@@ -167,3 +169,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </style>
 </body>
 </html>
+
