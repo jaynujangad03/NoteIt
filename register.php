@@ -52,18 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt = $pdo->prepare("INSERT INTO users (username, email, password, created_at) VALUES (?, ?, ?, NOW())");
                 $stmt->execute([$username, $email, $hashedPassword]);
 
-                // Get the new user ID
-                $userId = $pdo->lastInsertId();
-
-                // Set session
-                $_SESSION['user_id'] = $userId;
-                $_SESSION['username'] = $username;
-
-                $message = 'Registration successful! Redirecting...';
+                $message = 'Registration successful! Redirecting to login...';
                 $messageType = 'success';
 
-                // Redirect after a short delay
-                echo '<script>setTimeout(() => { window.location.href = "admin.php"; }, 1500);</script>';
+                // Redirect after a short delay to login.php
+                echo '<script>setTimeout(() => { window.location.href = "login.php"; }, 1500);</script>';
             }
         } catch (PDOException $e) {
             $message = 'Registration failed. Please try again. Error: ' . $e->getMessage();
