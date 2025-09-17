@@ -1,10 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 // Database connection
-require_once 'config.php';
+require_once 'config/database.php';
 
 // If user is already logged in, redirect to admin
 if (isset($_SESSION['user_id'])) {
@@ -21,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
-    
+
     // Validation
     if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
         $message = 'Please fill in all fields.';
@@ -40,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Check if username or email already exists
             $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
             $stmt->execute([$username, $email]);
-            
+
             if ($stmt->fetch()) {
                 $message = 'Username or email already exists.';
                 $messageType = 'error';
@@ -49,17 +46,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                 $stmt = $pdo->prepare("INSERT INTO users (username, email, password, created_at) VALUES (?, ?, ?, NOW())");
                 $stmt->execute([$username, $email, $hashedPassword]);
-                
+
                 // Get the new user ID
                 $userId = $pdo->lastInsertId();
-                
+
                 // Set session
                 $_SESSION['user_id'] = $userId;
                 $_SESSION['username'] = $username;
-                
+
                 $message = 'Registration successful! Redirecting...';
                 $messageType = 'success';
-                
+
                 // Redirect after a short delay
                 echo '<script>setTimeout(() => { window.location.href = "admin.php"; }, 1500);</script>';
             }
@@ -70,4 +67,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
