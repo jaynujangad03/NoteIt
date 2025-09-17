@@ -3,6 +3,11 @@ session_start();
 // Database connection
 require_once 'config.php';
 
+// Debugging (optional: shows errors instead of white screen)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // If user is already logged in, redirect to admin
 if (isset($_SESSION['user_id'])) {
     header('Location: admin.php');
@@ -61,10 +66,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo '<script>setTimeout(() => { window.location.href = "admin.php"; }, 1500);</script>';
             }
         } catch (PDOException $e) {
-            $message = 'Registration failed. Please try again.';
+            $message = 'Registration failed. Please try again. Error: ' . $e->getMessage();
             $messageType = 'error';
         }
     }
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - NoteIt!</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        form { max-width: 400px; margin: auto; }
+        input { display: block; width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px; width: 100%; }
+        .message { text-align: center; margin-bottom: 15px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Register for NoteIt!</h2>
+
+    <?php if (!empty($message)): ?>
+        <p class="message <?= $messageType ?>">
+            <?= htmlspecialchars($message) ?>
+        </p>
+    <?php endif; ?>
+
+    <form method="POST" action="">
+        <input type="text" name="username" placeholder="Username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required>
+        <input type="email" name="email" placeholder="Email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
